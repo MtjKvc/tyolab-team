@@ -1,0 +1,6 @@
+<script setup>
+import { ExternalLink, FolderGit2, X, Blocks, BookOpen, Boxes, BrainCircuit, CalendarDays, ChartNoAxesCombined, Check, ChevronRight, ChevronsUpDown, Circle, CircleCheck, CircleHelp, ClipboardCheck, CloudUpload, Columns3, Database, FileSpreadsheet, Flag, FlaskConical, FolderOpen, Info, Layers, LayoutDashboard, Lightbulb, LoaderCircle, NotebookPen, NotebookText, PanelsTopLeft, PenTool, PencilRuler, Play, Plus, Rows3, Search, SearchX, Settings2, Sparkles, Target, Trophy, Upload, Workflow } from 'lucide-vue-next'
+const icons = { ExternalLink, FolderGit2, X, Blocks, BookOpen, Boxes, BrainCircuit, CalendarDays, ChartNoAxesCombined, Check, ChevronRight, ChevronsUpDown, Circle, CircleCheck, CircleHelp, ClipboardCheck, CloudUpload, Columns3, Database, FileSpreadsheet, Flag, FlaskConical, FolderOpen, Info, Layers, LayoutDashboard, Lightbulb, LoaderCircle, NotebookPen, NotebookText, PanelsTopLeft, PenTool, PencilRuler, Play, Plus, Rows3, Search, SearchX, Settings2, Sparkles, Target, Trophy, Upload, Workflow }
+defineProps({ name: String, size: { type: Number, default: 20 } })
+</script>
+<template><component :is="icons[name] || icons.Circle" :size="size" :stroke-width="1.7" aria-hidden="true" /></template>

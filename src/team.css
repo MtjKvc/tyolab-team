@@ -1,0 +1,21 @@
+.team-brand-label { margin-left: 10px; font-size: .8rem; font-weight: 500; letter-spacing: 0; color: #7d8f85; }
+.team-header-nav { margin-left: auto; display: flex; gap: 25px; color: #6d8275; font-size: .875rem; }
+.team-header-nav a:hover { color: var(--green); }
+.team-intro { display: flex; justify-content: space-between; align-items: center; gap: 30px; padding: 50px 0 35px; }
+.team-intro h1 { font-size: clamp(2rem, 4vw, 3.3rem); letter-spacing: -.055em; line-height: 1.15; font-weight: 650; margin: 16px 0; }
+.team-intro p { max-width: 620px; line-height: 1.8; color: #72867a; }
+.team-summary { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--line); border-radius: 10px; margin-bottom: 34px; padding: 22px 0; }
+.team-summary > div { padding: 0 24px; border-right: 1px solid var(--line); }.team-summary > div:last-child { border: none; }
+.team-summary strong { display: block; font-size: 1.5rem; color: #2d5b43; margin-top: 7px; }.team-summary span { font-size: .875rem; color: #819187; }
+.team-layout { display: grid; grid-template-columns: 1.35fr 1fr; gap: 40px; margin: 35px 0 45px; }.team-layout section { scroll-margin-top: 24px; }
+.team-journal .journal-card { padding: 23px; }.team-journal .journal-card h3 { font-size: 1.1rem; }.team-journal .journal-card p { font-size: .95rem; }
+.team-journal .journal-card .text-button { margin-top: 16px; overflow-wrap: anywhere; }
+.team-filters { display: flex; flex-wrap: wrap; gap: 9px; margin: 0 0 20px; }.team-filters button { background: #f3f6f4; padding: 8px 13px; border-radius: 6px; color: #7b9082; font-size: .875rem; }.team-filters button.active { color: #176d4e; background: #e3f1e9; }
+.team-repos { padding: 28px; border: 1px solid var(--line); border-radius: 12px; margin: 0 0 40px; scroll-margin-top: 24px; }
+.repo-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }.repo-card { border: 1px solid var(--line); border-radius: 9px; padding: 22px; }.repo-card > svg { color: #5e8c73; margin-bottom: 13px; }.repo-card p { color: #7f9488; font-size: .9rem; line-height: 1.75; margin: 8px 0 17px; }.repo-card .text-button { overflow-wrap: anywhere; word-break: break-word; }
+.team-about { background: #f1f7f3; padding: 23px; border-radius: 9px; margin-top: 28px; }.team-about p { color: #748a7c; font-size: .9rem; line-height: 1.85; margin-top: 10px; }
+.team-empty { border: 1px dashed #ccdfd2; border-radius: 10px; padding: 28px; color: #789080; line-height: 1.8; }
+.team-status { padding: 12px 16px; color: #236b4e; background: #eaf5ee; border-radius: 7px; margin-top: 20px; font-size: .875rem; }
+.entry-author { font-style: normal; }.repo-disabled { color: #82968a; font-size: .875rem; }
+@media(max-width:850px) { .team-layout { grid-template-columns: 1fr; gap: 35px; }.team-intro { align-items: flex-start; flex-direction: column; }.team-header-nav { gap: 15px; }.team-summary > div { padding: 0 17px; } }
+@media(max-width:550px) { .team-topbar .avatar { display: none; }.team-header-nav { width: 100%; margin: 0; justify-content: space-between; padding-top: 8px; }.team-intro { padding-top: 30px; }.team-summary { grid-template-columns: 1fr; gap: 20px; }.team-summary > div { border: none; display: flex; justify-content: space-between; align-items: center; }.team-summary strong { margin: 0; font-size: 1.15rem; }.repo-grid { grid-template-columns: 1fr; }.team-repos { padding: 20px; }.team-repos .section-heading { flex-direction: column; }.team-journal .section-heading { flex-wrap: wrap; }.team-journal .journal-card { padding: 18px; } }
