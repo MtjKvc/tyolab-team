@@ -24,7 +24,7 @@ Produkčný výstup: vlastný `dist/`. Produkčný lokálny náhľad: http://loc
 
 Tímový web nepotrebuje backend, databázu ani REST API. Vue a Tailwind sa pri `npm run build` zostavia do statických HTML, CSS a JavaScript súborov v `dist/`. Na GitHub Pages sa publikuje obsah tohto priečinka. Node.js slúži iba pri vývoji a zostavení, nie pri návšteve webu.
 
-Vite má nastavené `base: './'`, takže odkazy na produkčné súbory fungujú aj na `https://pouzivatel.github.io/nazov-repozitara/`. Workflow `.github/workflows/deploy.yml` web zostaví a publikuje po pushnutí na `main`, prípadne ručne cez GitHub Actions. GitHub repozitár ešte nebol pripojený a Pages na ňom ešte nie sú aktivované.
+Vite má nastavené `base: './'`, takže odkazy na produkčné súbory fungujú aj na `https://pouzivatel.github.io/nazov-repozitara/`. Workflow `.github/workflows/deploy.yml` web zostaví a publikuje po pushnutí na `main`, prípadne ručne cez GitHub Actions.
 
 ### Prvé nasadenie
 
@@ -56,16 +56,29 @@ git push
 
 Každý push na `main` automaticky zostaví a aktualizuje statický web. GitHub Actions slúži iba na zostavenie a publikovanie; stránke nepridáva REST API ani backend.
 
-Spoločný obsah možno udržiavať priamo v súboroch repozitára a po zmene znovu zostaviť a publikovať web. To nevyžaduje REST API. Aktuálne ukážkové zápisy a repozitáre sú v `src/pages/ProjectPage.vue`, míľniky v `src/data/milestones.js`.
+## Úprava obsahu
 
-## Funkcie prototypu
+Stránka je iba na čítanie. Nemá formuláre, administráciu, REST API ani ukladanie do prehliadača. Filtrovanie denníka mení len zobrazenie.
 
-- Pridanie zápisu alebo záznamu typu Commit s názvom, popisom, autorom a odkazom.
-- Filtrovanie zápisov a commitov.
-- Samostatná sekcia míľnikov s ukážkovým plánom.
-- Nastavenie skutočných odkazov na repozitár aplikácie a tímového webu.
-- Záznamy a odkazy sa ukladajú do `localStorage` len v danom prehliadači a na danej doméne.
+- `src/data/content.js`: záznamy v poli `entries` a odkazy na repozitáre v poli `repos`.
+- `src/data/milestones.js`: míľniky a ich stav.
 
-Repozitáre nie sú automaticky pripojené ku GitHubu/GitLabu. Skutočné adresy nastavíte cez „Upraviť odkazy“ iba lokálne; aby ich videli všetci, upravte obsah v zdrojových súboroch a publikujte nový build. To isté platí pre zápisy. Pôvodné záznamy a termíny sú označené ako ukážkové. Prihlasovanie ani automatické načítanie commitov nie sú súčasťou statického webu.
+Nový záznam pridajte na začiatok poľa `entries`, napríklad:
 
-Poznámky uložené na pôvodnom kombinovanom webe zostávajú v úložisku jeho domény pod `tyolab-demo-journal`; nová doména ich nemôže automaticky čítať. Toto rozdelenie ich nemaže.
+```js
+{
+  title: 'Dokončenie návrhu rozhrania',
+  body: 'Popis vykonanej práce a rozhodnutí tímu.',
+  date: '7. 10. 2026',
+  kind: 'Zápis',
+  author: 'Tím TYOLab',
+  url: '',
+  demo: false,
+},
+```
+
+Pre commit použite `kind: 'Commit'` a do `url` vložte jeho skutočnú HTTPS adresu. Pre bežný zápis je odkaz voliteľný. Ukážkové zápisy a míľniky nahraďte reálnymi údajmi. Odkaz na repozitár laboratória zostáva prázdny, kým nebude známa jeho adresa.
+
+Po úprave vykonajte `npm run build`, commit a push podľa návodu vyššie. GitHub Actions publikuje spoločný obsah pre všetkých návštevníkov. Commity sa automaticky nenačítavajú z GitHub API.
+
+Staré lokálne poznámky sa už nečítajú ani nezobrazujú. Dáta uložené predchádzajúcim prototypom v úložisku prehliadača táto zmena nemaže; nie sú súčasťou publikovaného obsahu.
