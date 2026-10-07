@@ -82,3 +82,56 @@ Pre commit použite `kind: 'Commit'` a do `url` vložte jeho skutočnú HTTPS ad
 Po úprave vykonajte `npm run build`, commit a push podľa návodu vyššie. GitHub Actions publikuje spoločný obsah pre všetkých návštevníkov. Commity sa automaticky nenačítavajú z GitHub API.
 
 Staré lokálne poznámky sa už nečítajú ani nezobrazujú. Dáta uložené predchádzajúcim prototypom v úložisku prehliadača táto zmena nemaže; nie sú súčasťou publikovaného obsahu.
+
+## Požiadavky predmetu: stav, zápisnice a dokumentácia
+
+Obsah sekcií sa upravuje v `src/data/project.js`. Stránka zostáva statická, bez formulárov a API.
+
+- `project`: anotácia, členovia a ich zodpovednosti, vedúci, aktuálna fáza a `updatedAt` (skutočný dátum aktualizácie obsahu).
+- `weeklyReports`: týždenné prehľady dokončených a rozpracovaných činností, ďalšie kroky a otvorené body. Najnovší týždeň patrí na začiatok. Aspoň raz týždenne doplňte vecný stav, aj keď nedošlo k výraznému pokroku; dátum sa automaticky neposúva.
+- `meetings`: zápisnice zo skutočných stretnutí. Zápisy denníka ani commity ich nenahrádzajú.
+- `documents`: všetkých osem povinných oblastí dokumentácie. Stav „Pracovný návrh“ neznamená finálny ani schválený dokument.
+
+### Zverejnenie zápisnice
+
+Do poľa `meetings` vložte objekt podľa nasledujúcej štruktúry a nahraďte všetky označenia skutočnými údajmi. Toto je iba príklad formátu, nie reálne stretnutie:
+
+```js
+{
+  id: '01',
+  title: 'Zápisnica č. 1 – názov stretnutia',
+  date: 'YYYY-MM-DD',
+  time: 'HH:MM – HH:MM',
+  location: 'Miesto alebo forma stretnutia',
+  attendees: ['Meno účastníka'],
+  author: 'Meno zapisovateľa',
+  isFirst: true,
+  discussion: [
+    { title: 'Téma programu', notes: 'Podrobný priebeh diskusie, argumenty a závery.' },
+  ],
+  decisions: ['Prijaté rozhodnutie a jeho zdôvodnenie.'],
+  previousTasks: [],
+  tasks: [
+    { title: 'Konkrétna úloha', owner: 'Zodpovedná osoba', due: 'YYYY-MM-DD', deliverable: 'Očakávaný výstup' },
+  ],
+  nextMeeting: 'Dátum a program ďalšieho stretnutia, ak boli dohodnuté.',
+},
+```
+
+Pri každom ďalšom stretnutí nastavte `isFirst: false` a doplňte zhodnotenie minulých úloh:
+
+```js
+previousTasks: [
+  { title: 'Úloha z minulého stretnutia', owner: 'Zodpovedná osoba', status: 'Splnená / čiastočne splnená / nesplnená', review: 'Výsledok, dôvod odkladu alebo ďalší postup.' },
+],
+```
+
+Plný obsah zápisnice sa zobrazí po rozbalení priamo na webovej stránke. Šablóna na prípravu zápisu je dostupná aj cez `public/templates/zapisnica.md`. Šablónu nepočítame medzi zverejnené zápisnice.
+
+### Dokumenty a prílohy
+
+Oficiálne zadanie, ponuku a ďalšie finálne dokumenty uložte napríklad do `public/documents/`. V príslušnej položke `documents` nastavte `file: 'documents/nazov.pdf'`, pravdivý stav a dátum aktualizácie. Cesta je relatívna, bez úvodného `/`, aby fungovala na GitHub Pages. Súbor v `public/` bude verejne dostupný po nasadení. Pracovný text možno priebežne dopĺňať v `paragraphs` a `items`.
+
+Finálna dokumentácia musí obsahovať oficiálne zadanie, ponuku, ciele, analýzu problému, algoritmy a metódy, dokumentáciu programov, výsledky a porovnania, literatúru a zdroje spracovávaných textov. Súčasná stránka obsahuje ich štruktúru a označené pracovné podklady; nenahrádza chýbajúce finálne dokumenty.
+
+Jeden člen tímu odovzdáva dokumentáciu a prílohy do AIS. Publikovanie na webe nie je odovzdanie do AIS. Členov, vedúceho, skutočné zápisnice, schválené dokumenty a výskumné výsledky treba doplniť podľa reality; nevymýšľajú sa automaticky.
