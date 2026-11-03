@@ -971,7 +971,7 @@
       '</div>' +
       (p.tasks.length
         ? '<div class="task-block"><div class="task-block-top"><h4>Úlohy zo zápisnice č. ' + p.source + '</h4>' +
-            '<a class="task-source" href="docs/zapisnica-' + p.source + '.pdf" target="_blank" rel="noopener">Zobraziť PDF ↗</a></div>' +
+            '<a class="task-source" href="docs/zapisnica-' + p.source + '.pdf" download="zapisnica-' + p.source + '.pdf">Stiahnuť PDF ↓</a></div>' +
             '<ul class="task-list">' + p.tasks.map(taskHTML).join('') + '</ul></div>'
         : '<p class="empty-phase">Úlohy pre letný semester ešte neboli stanovené.</p>') +
     '</div>';
