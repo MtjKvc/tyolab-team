@@ -960,6 +960,7 @@
       '<span class="tm"><span class="task-person">' + t.who + '</span><span class="task-due">' + t.due + '</span></span>' +
     '</li>';
 
+  
   const panelHTML = (p) =>
     '<div class="detail-panel" id="panel-' + p.id + '" role="region" aria-label="' + p.name + '">' +
       '<div class="panel-head">' +
@@ -970,9 +971,12 @@
         '<span class="pill ' + p.status + '">' + (STATUS_LABEL[p.status] || p.status) + '</span>' +
       '</div>' +
       (p.tasks.length
-        ? '<div class="task-block"><div class="task-block-top"><h4>Úlohy zo zápisnice č. ' + p.source + '</h4>' +
-            '<a class="task-source" href="docs/zapisnica-' + p.source + '.pdf" download="zapisnica-' + p.source + '.pdf">Stiahnuť PDF ↓</a></div>' +
-            '<ul class="task-list">' + p.tasks.map(taskHTML).join('') + '</ul></div>'
+        ? '<div class="task-block">' +
+            '<div class="task-block-top">' +
+              '<h4>Úlohy zo zápisnice č. ' + p.source + '</h4>' +
+            '</div>' +
+            '<ul class="task-list">' + p.tasks.map(taskHTML).join('') + '</ul>' +
+          '</div>'
         : '<p class="empty-phase">Úlohy pre letný semester ešte neboli stanovené.</p>') +
     '</div>';
 
