@@ -427,7 +427,7 @@
         </div>
         <div class="hero-meta-item">
           <div class="k">Posledná aktualizácia stránky</div>
-          <div class="v">3. 11. 2026</div>
+          <div class="v">13. 11. 2026</div>
         </div>
       </div>
 
@@ -477,7 +477,7 @@
       <div class="section-head">
         <span class="bar"></span>
         <h2>Stav projektu</h2>
-        <p>Úlohy priamo zo zápisníc tímových stretnutí. Vyberte fázu a zobrazte zadania, zodpovedných členov a termíny.</p>
+        <p>Prehľad dokončených a prebiehajúcich fáz projektu podľa tímových zápisníc. Vyberte fázu a zobrazte úlohy, zodpovedných členov a termíny.</p>
       </div>
 
       <!-- Strom fáz -->
@@ -537,7 +537,7 @@
       <div class="section-head">
         <span class="bar"></span>
         <h2>Zápisnice zo stretnutí</h2>
-        <p>Prehľad tímových stretnutí. Kompletné zápisnice sú dostupné na stiahnutie vo formáte PDF.</p>
+        <p>Prehľad tímových stretnutí. Kompletné zápisnice zo stretnutí sú dostupné na stiahnutie vo formáte PDF.</p>
       </div>
       <div class="minutes-grid" aria-label="PDF zápisnice zo stretnutí">
         <article class="minute-card">
@@ -615,6 +615,18 @@
             Stiahnuť PDF
           </a>
         </article>
+        <article class="minute-card">
+          <div class="minute-card-top"><span class="minute-file-icon" aria-hidden="true"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></span><span class="minute-file-type">PDF</span></div>
+          <h3>Zápisnica č. 06</h3><time datetime="2026-11-06">6. 11. 2026</time>
+          <p class="minute-topic">Správa používateľov, laboratórií a datasetov</p>
+          <a class="minute-download" href="docs/zapisnica_06.pdf" download="zapisnica_06.pdf">Stiahnuť PDF</a>
+        </article>
+        <article class="minute-card">
+          <div class="minute-card-top"><span class="minute-file-icon" aria-hidden="true"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></span><span class="minute-file-type">PDF</span></div>
+          <h3>Zápisnica č. 07</h3><time datetime="2026-11-13">13. 11. 2026</time>
+          <p class="minute-topic">Editor datasetov, administrácia a štatistiky</p>
+          <a class="minute-download" href="docs/zapisnica_07.pdf" download="zapisnica_07.pdf">Stiahnuť PDF</a>
+        </article>
       </div>
     </div>
   </section>
@@ -625,7 +637,7 @@
 <footer class="site-footer">
   <div class="container footer-inner">
     <span>© 2026 TYOLab · Tímový projekt · Aplikovaná informatika</span>
-    <span>Posledná aktualizácia: 3. 11. 2026</span>
+    <span>Posledná aktualizácia: 13. 11. 2026</span>
   </div>
 </footer>
 
@@ -673,8 +685,8 @@
   const SEM_LABEL = { zimny: 'Zimný semester', letny: 'Letný semester' };
   const STATUS_LABEL = { active: 'Prebieha', planned: 'Plánované', done: 'Dokončené' };
 
-  /* Úlohy sú prevzaté zo sekcie 4 v PDF zápisniciach č. 01–05.
-     Stav fázy neoznačuje každú jej úlohu za dokončenú. */
+  /* Fázy vychádzajú z tímových zápisníc.
+   Stav fázy neoznačuje každú jej úlohu za dokončenú. */
   const PHASES = [
     {
         "id": "p1",
@@ -827,7 +839,7 @@
     {
         "id": "p4",
         "sem": "zimny",
-        "status": "active",
+        "status": "done",
         "name": "Backend, databáza a AutoGluon",
         "date": "23. 10. 2026",
         "iso": "2026-10-23",
@@ -878,7 +890,7 @@
     {
         "id": "p5",
         "sem": "zimny",
-        "status": "active",
+        "status": "done",
         "name": "Integrácia, oprávnenia a správa dát",
         "date": "30. 10. 2026",
         "iso": "2026-10-30",
@@ -923,6 +935,108 @@
                 "name": "Pripraviť integračné testy pre správu laboratórií a datasetov vrátane chybových stavov.",
                 "who": "R. Bajnok, M. Hrabčák",
                 "due": "6. 11. 2026"
+            }
+        ]
+    },
+    {
+        "id": "p6",
+        "sem": "zimny",
+        "status": "done",
+        "name": "Správa používateľov, laboratórií a datasetov",
+        "date": "6. 11. 2026",
+        "iso": "2026-11-06",
+        "source": "06",
+        "tasks": [
+            {
+                "name": "Dopracovať prepojenie správy používateľov a pozvánok s administračným rozhraním.",
+                "who": "M. Hrabčák, R. Bajnok",
+                "due": "13. 11. 2026"
+            },
+            {
+                "name": "Rozšíriť správu laboratórií o členstvá a možnosti úpravy dostupné podľa roly.",
+                "who": "M. Hrušovský, R. Bajnok",
+                "due": "13. 11. 2026"
+            },
+            {
+                "name": "Dokončiť prepojenie nahrávania a zoznamu datasetov s backendom.",
+                "who": "M. Kováč, M. Hrabčák",
+                "due": "13. 11. 2026"
+            },
+            {
+                "name": "Pripraviť úpravu a ukladanie existujúceho datasetu v spoločnom editore.",
+                "who": "M. Kováč, M. Hrušovský",
+                "due": "13. 11. 2026"
+            },
+            {
+                "name": "Rozpracovať zobrazovanie vlastností a základných štatistík datasetu.",
+                "who": "M. Kováč, M. Hrabčák",
+                "due": "13. 11. 2026"
+            },
+            {
+                "name": "Zjednotiť administrátorské obrazovky pre používateľov a spoločnosti.",
+                "who": "R. Bajnok, M. Hrušovský",
+                "due": "13. 11. 2026"
+            },
+            {
+                "name": "Pokračovať v experimentálnom vyhodnocovaní modelov pomocou AutoGluon.",
+                "who": "J. Chabada, M. Kováč",
+                "due": "13. 11. 2026"
+            },
+            {
+                "name": "Prejsť hlavný používateľský postup a aktualizovať technickú dokumentáciu.",
+                "who": "J. Chabada, M. Hrabčák",
+                "due": "13. 11. 2026"
+            }
+        ]
+    },
+    {
+        "id": "p7",
+        "sem": "zimny",
+        "status": "active",
+        "name": "Editor datasetov, administrácia a štatistiky",
+        "date": "13. 11. 2026",
+        "iso": "2026-11-13",
+        "source": "07",
+        "tasks": [
+            {
+                "name": "Doplniť ďalšie možnosti práce so stĺpcami a ich vlastnosťami v editore.",
+                "who": "M. Kováč, M. Hrušovský",
+                "due": "20. 11. 2026"
+            },
+            {
+                "name": "Rozšíriť vytváranie datasetov priamo z prostredia správy laboratórií.",
+                "who": "M. Hrabčák, R. Bajnok",
+                "due": "20. 11. 2026"
+            },
+            {
+                "name": "Vylepšiť prehľad štatistických výsledkov a zobrazenie jednotlivých stĺpcov.",
+                "who": "M. Kováč, M. Hrabčák",
+                "due": "20. 11. 2026"
+            },
+            {
+                "name": "Dopracovať nadväznosť uloženia datasetu a aktualizácie jeho štatistík.",
+                "who": "M. Hrabčák, M. Kováč",
+                "due": "20. 11. 2026"
+            },
+            {
+                "name": "Zjednotiť ovládanie detailu laboratória a správy jeho členov.",
+                "who": "M. Hrušovský, R. Bajnok",
+                "due": "20. 11. 2026"
+            },
+            {
+                "name": "Upraviť používateľské informácie a stavové hlásenia pri práci s datasetmi.",
+                "who": "M. Hrušovský, M. Kováč",
+                "due": "20. 11. 2026"
+            },
+            {
+                "name": "Pokračovať v príprave trénovacieho modulu AutoGluon na budúce napojenie.",
+                "who": "J. Chabada, M. Kováč",
+                "due": "20. 11. 2026"
+            },
+            {
+                "name": "Doplniť dokumentáciu aktuálneho API a hlavných používateľských postupov.",
+                "who": "J. Chabada, M. Hrabčák",
+                "due": "20. 11. 2026"
             }
         ]
     },
